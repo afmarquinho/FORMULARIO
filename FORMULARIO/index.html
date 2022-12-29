@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="app.css">
+    
+
+</head>
+<body>
+    <section id="section" class="section">
+        <h3 class="header__titulo text-align"> Validación de Formulario </h3>
+        
+        <div class="section__contenedor ">
+            <form action="" class="formulario">
+                <div class="contenedor__right">
+                    <div class="nombre">
+                        <input type="text" id="nombre" class="nombre__input" name="nombre__input" placeholder="Tu Nombre">
+                    </div>
+                    <div class="segundoNombre">
+                        <input type="text" id="segundoNombre"class="segundoNombre__input" name="segundoNombre__input" placeholder="Segundo Nombre">
+                    </div>
+                    <div class="apellido">
+                        <input type="text" id="apellido" class="apellido__input" name="apellido__input" placeholder="Tu Apellido">
+                    </div>
+                    <div class="segundoApellido">
+                        <input type="text" id="segundoApellido" class="segundoApellido__input" name="segundoApellido__input" placeholder="Segundo Apellido">
+                    </div>
+                </div>
+                <div class="contenedor__left">
+                    <div class="correo">
+                        <input type="email" id="email" class="correo__input" name="correo__input" placeholder="correo@dominio.com">
+                    </div>
+                    <div class="confirmaCorreo">
+                        <input type="email" id="confirmacion" class="confirmaCorreo__input" name="confirmaCorreo__input" placeholder="Confirma correo electrónico">
+                    </div>
+                    <div class="usuario">
+                        <input type="text" id="usuario" class="usuario__input" name="usuario__input" placeholder="usuario">
+                    </div>
+                    <div class="contrasena">
+                        <input type="password" id="password" class="contrasena__input" name="contrasena__input" placeholder="contraseña">
+                    </div>
+                    <div class="contrasena">
+                        <input type="password" id="confirmacion" class="confirmaContrasena__input" name="confirmaContrasena__input" placeholder="confirma contraseña">
+                    </div>                        
+                    <div class="tarjetaCredito">
+                        <input type="number" id="tarjeta" class="tarjetaCredito__input" name="tarjetaCredito__input" placeholder="Tarjeta de crédito">
+                    </div>
+                </div>
+            
+                <div class="button">
+                    <button type="submit"class="enviar bloqueado" disabled="disabled">ENVIAR</button>
+                    <button type="reset" class="borrar">BORRAR</button>
+                </div>
+            </form>
+        </div>
+
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
