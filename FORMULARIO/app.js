@@ -36,100 +36,47 @@ document.addEventListener('DOMContentLoaded',function(){
         const nombre = e.target.id;
         const valorInput = e.target.value.trim();
         
-        if(!(e.target.classList.contains('segundoNombre__input') || e.target.classList.contains('segundoApellido__input'))){
-            if(valorInput===''){             
-                crearElementoHTML(`*El campo ${nombre} no puede estar vacío`, padre);
-            } // fin if valorInput
-        
-        } // fin if principal
+        if(!(e.target.classList.contains('segundoNombre__input') || 
+            e.target.classList.contains('segundoApellido__input'))){
 
-        // multiplesValidaciones(nombre,valorInput,padre);
-    
-    }  // fin funcion validar
+            if(valorInput===''){
+                mostrarAlerta(`*El campo ${nombre} no puede estar vacío`, padre);
+                return;          
+            }
+            
+            if((nombre === 'email' ||nombre ==='confirmaEmail' ) && !validarEmail(valorInput)){
+                mostrarAlerta('email inválido', padre);
+                return
+            }
+                
+            limpiarHTML(padre);
+            };
+    }   
 
-    function crearElementoHTML(mensaje, referencia){
-        const mensajeError = referencia.querySelector('.campo-vacio');
-        if (mensajeError){
-            mensajeError.remove();
+    //-----------------------0---------------------------------
+    function mostrarAlerta(mensaje, referencia){
+        const alerta = referencia.querySelector('.campo-vacio');
+        if(alerta){
+            alerta.remove();
         }
+
         const campoVacio = document.createElement('P');
         campoVacio.textContent= mensaje;
-        campoVacio.setAttribute('class', 'campo-vacio')
+        campoVacio.classList.add('campo-vacio')
         campoVacio.setAttribute('id', 'campo-vacio');
         referencia.appendChild(campoVacio);
     }
 
-    // function multiplesValidaciones(nombreId, valorCampo,padre_){
-    //     switch(nombreId){
-    //         case  'nombre':
-    //             let resultado = regexName.test(valorCampo);
-    //             if(!resultado){
-    //                 crearElementoHTML('Ingresa un nombre válido', padre_)
-    //             }
+    function limpiarHTML(referencia){
+        const alerta = referencia.querySelector('.campo-vacio');
+         if (alerta){
+            alerta.remove();
+        }
+    }
 
-    //         case 'segundoNombre':
-    //             resultado = regexName.test(valorCampo);
-    //             if(!resultado){
-    //             menError= 'Ingresa un nombre valido';
-    //             }
-    //             return menError;
-    //             break;
-            
-    //         case 'apellido':
-    //             resultado = regexName.test(valorCampo);
-    //            return resultado;
-    //             break;
-    //         case 'segundoApellido':
-    //             resultado = regexName.test(valorCampo);
-    //            return resultado;
-    //             break;
-    //         case 'email':
-    //             resultado = regexEmail.test(valorCampo);
-    //            return resultado;
-    //             break;
-    //         default:
-    //             console.log('defaul')
-            
-            
-         
-
-       // } //fin switch
-   // } //fin funcion validar
-
-        
-            
-            
-            
-        
-        // if (nombre === "nombre"){
-        //     expresionRegularNombreYApellido(valorInput);
-        // }
-
-
-    
-    
-    // function expresionRegularNombreYApellido(dato){
-    //     const prompt = /^[a-zA-Z\s]+$/;
-    //     console.log(prompt.test(dato));
-    // }
-
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
+    function validarEmail(email){
+        const resultado = regexEmail.test(email);
+        return resultado;
+    }
 
 })
